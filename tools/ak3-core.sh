@@ -215,7 +215,7 @@ unpack_ramdisk() {
 ### dump_boot (dump and split image, then extract ramdisk)
 dump_boot() {
   split_boot;
-  unpack_ramdisk;
+  [ -f "$SPLITIMG/ramdisk.cpio.gz" -o -f "$SPLITIMG/ramdisk.cpio" ] && unpack_ramdisk;
 }
 ###
 
@@ -618,7 +618,7 @@ flash_generic() {
 
 ### write_boot (repack ramdisk then build, sign and write image, vendor_dlkm and dtbo)
 write_boot() {
-  repack_ramdisk;
+  [ -d "$ramdisk" ] && repack_ramdisk;
   flash_boot;
   flash_generic vendor_dlkm;
   flash_generic system_dlkm;
