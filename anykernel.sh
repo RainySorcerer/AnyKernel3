@@ -42,14 +42,12 @@ dump_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_b
 write_boot; # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
 ## end boot install
 
-
 ## AnyKernel install
-dump_boot;
-
+split_boot;
 
 # begin ramdisk changes
 # end ramdisk changes
 
-
-write_boot;
+flash_boot;
+flash_dtbo;
 ## end install
