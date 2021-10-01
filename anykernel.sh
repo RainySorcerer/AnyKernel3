@@ -4,7 +4,11 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=Snowflake Kernel by RainZ
+kernel.string=Snowflake Kernel
+kernel.compiler=EVA GCC 15.0.1
+kernel.made=RainZ
+kernel.version=4.14.336
+message.word=Thank you for installing Snowflake Kernel
 do.devicecheck=1
 do.modules=0
 do.systemless=1
