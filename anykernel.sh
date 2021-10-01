@@ -5,6 +5,12 @@
 # global properties
 properties() { '
 kernel.string=Snowflake Kernel by RainZ
+kernel.for=
+kernel.compiler=
+kernel.made=
+kernel.version=
+message.word=
+build.date=$(date)
 do.devicecheck=1
 do.modules=0
 do.systemless=1
