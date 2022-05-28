@@ -7,7 +7,6 @@ properties() { '
 kernel.string=Snowflake Kernel by RainZ
 kernel.compiler=
 kernel.made=
-kernel.version=
 message.word=
 do.devicecheck=1
 do.modules=0
