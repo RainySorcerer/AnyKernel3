@@ -7,26 +7,21 @@ properties() { '
 kernel.string=Snowflake Kernel
 kernel.compiler=Neutron Clang 19
 kernel.made=RainZ
-kernel.version=4.14.336
+kernel.version=4.14.355
 message.word=Thank you for installing Snowflake Kernel
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
-do.cleanuponabort=0
-device.name1=miatoll
-device.name2=curtana
-device.name3=excalibur
-device.name4=gram
-device.name5=joyeuse
+do.cleanuponabort=1
+device.name1=laurel_sprout
 supported.versions=11.0-15.0
 supported.patchlevels=
 '; } # end properties
 
 # shell variables
 block=/dev/block/bootdevice/by-name/boot;
-is_slot_device=0;
-ramdisk_compression=auto;
+is_slot_device=1;
 patch_vbmeta_flag=auto;
 
 
