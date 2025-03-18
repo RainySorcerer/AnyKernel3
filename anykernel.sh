@@ -7,18 +7,14 @@ properties() { '
 kernel.string=Snowflake Kernel
 kernel.compiler=EVA GCC 15.0.1
 kernel.made=RainZ
-kernel.version=4.14.336
+kernel.version=4.14.356
 message.word=Thank you for installing Snowflake Kernel
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
-do.cleanuponabort=0
-device.name1=miatoll 
-device.name2=curtana
-device.name3=excalibur 
-device.name4=gram
-device.name5=joyeuse
+do.cleanuponabort=1
+device.name1=laurel_sprout
 supported.versions=12.0-15.0
 supported.patchlevels=
 supported.vendorpatchlevels=
@@ -33,8 +29,7 @@ set_perm_recursive 0 0 750 750 $RAMDISK/init* $RAMDISK/sbin;
 
 # boot shell variables
 block=/dev/block/bootdevice/by-name/boot;
-IS_SLOT_DEVICE=0;
-RAMDISK_COMPRESSION=auto;
+is_slot_device=1;
 PATCH_VBMETA_FLAG=auto;
 
 if mountpoint -q /data; then
