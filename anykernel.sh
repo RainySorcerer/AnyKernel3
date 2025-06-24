@@ -5,7 +5,7 @@
 # global properties
 properties() { '
 kernel.string=Snowflake Kernel
-kernel.compiler=EVA GCC 15.0.1
+kernel.compiler=Neutron Clang 19
 kernel.made=RainZ
 kernel.version=4.14.356
 message.word=Thank you for installing Snowflake Kernel
@@ -14,7 +14,7 @@ do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=1
-device.name1=laurel_sprout
+device.name1=nabu
 supported.versions=12.0-15.0
 supported.patchlevels=
 supported.vendorpatchlevels=
