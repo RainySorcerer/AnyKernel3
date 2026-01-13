@@ -5,7 +5,7 @@
 # global properties
 properties() { '
 kernel.string=Snowflake Kernel by RainZ
-kernel.compiler=Neutron Clang 19
+kernel.compiler=Android clang 20.0.0
 kernel.made=RainZ
 message.word=Thx for installing Snowflake Kernel
 do.devicecheck=1
