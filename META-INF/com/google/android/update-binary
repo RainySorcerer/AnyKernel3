@@ -548,14 +548,26 @@ if [ -f banner ]; then
   ui_print " ";
 fi;
 
-KERNEL_STRING="$(file_getprop anykernel.sh kernel.string)";
-ui_print "$KERNEL_STRING";
+KERNEL_REVISION="$(file_getprop anykernel.sh kernel.revision)";
+KERNEL_COMPILER="$(file_getprop anykernel.sh kernel.compiler)";
+DEVICE_NAME="$(getprop ro.product.device)";
+KERNEL_MADE="$(file_getprop anykernel.sh kernel.made)";
+ANYKERNEL3_MADE="$(file_getprop anykernel.sh anykernel3.made)";
+
+ui_print "-- Kernel Revision      : $KERNEL_REVISION";
+ui_print "-- Compiler             : $KERNEL_COMPILER";
+ui_print "-- Device               : $DEVICE_NAME";
+ui_print "-- Kernel Developer     : $KERNEL_MADE";
+ui_print "-- AnyKernel3 Developer : $ANYKERNEL3_MADE";
+ui_print "_________________________________________________" " ";
+
+
 if [ -f version ]; then
   ui_print " ";
   ui_printfile version;
   ui_print " ";
 fi;
-ui_print " " "AnyKernel3 by osm0sis @ xda-developers" " ";
+ui_print "- Preparing...";
 grep -oE 'AK_BASE.*' META-INF/com/google/android/updater-script >&2;
 ui_print " ";
 
