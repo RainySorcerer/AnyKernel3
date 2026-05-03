@@ -502,8 +502,10 @@ flash_boot() {
   elif [ "$CUSTOMDD" ]; then
     dd if=/dev/zero of=$BLOCK $CUSTOMDD 2>/dev/null;
     dd if=boot-new.img of=$BLOCK $CUSTOMDD;
+    ui_print " " "- $(basename $BLOCK | sed -e 's/_a$//' -e 's/_b$//').img";
   else
     cat boot-new.img /dev/zero > $BLOCK 2>/dev/null || true;
+    ui_print " " "- $(basename $BLOCK | sed -e 's/_a$//' -e 's/_b$//').img";
   fi;
   if [ $? != 0 ]; then
     abort "Flashing image failed. Aborting...";
@@ -600,8 +602,10 @@ flash_generic() {
     elif [ "$CUSTOMDD" ]; then
       dd if=/dev/zero of=$imgblock 2>/dev/null;
       dd if=$img of=$imgblock;
+      ui_print " " "- $1.img";
     else
       cat $img /dev/zero > $imgblock 2>/dev/null || true;
+      ui_print " " "- $1.img";
     fi;
     if [ $? != 0 ]; then
       abort "Flashing $1 failed. Aborting...";
