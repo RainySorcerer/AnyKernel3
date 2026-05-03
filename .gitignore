@@ -1,0 +1,5 @@
+# ignore stuff
+*dtb*
+dtbo.img
+Image
+*.zip*

@@ -300,7 +300,7 @@ do_devicecheck() {
   for testname in $(grep '^device.name.*=' anykernel.sh | cut -d= -f2-); do
     for devicename in $device $product $vendordevice $vendorproduct; do
       if [ "$devicename" == "$testname" ]; then
-        ui_print "$testname" " ";
+        ui_print "- Fine!" " ";
         match=1;
         break 2;
       fi;
@@ -322,7 +322,7 @@ int2ver() {
 do_versioncheck() {
   [ "$(file_getprop anykernel.sh supported.versions)" ] || return 1;
   local android_ver hi_ver lo_ver parsed_ver supported supported_ver;
-  ui_print "Checking Android version...";
+  ui_print "- Checking Android version...";
   supported_ver=$(file_getprop anykernel.sh supported.versions | tr -d '[:space:]');
   android_ver=$(file_getprop /system/build.prop ro.build.version.release);
   parsed_ver=$(int2ver $android_ver);
@@ -341,9 +341,11 @@ do_versioncheck() {
     done;
   fi;
   if [ "$supported" ]; then
-    ui_print "$android_ver" " ";
+    ui_print "- Current Android version: $android_ver is supported.";
+    ui_print " ";
+    ui_print "Continuing with flashing process...";
   else
-    abort " " "Unsupported Android version. Aborting...";
+    abort "- Currently Android $android_ver is unsupported. This kernel is only for Android $supported_ver. Aborting... !";
   fi;
 }
 do_levelcheck() {
@@ -364,7 +366,7 @@ do_levelcheck() {
     hi_lvl=9999-99;
   fi;
   if echo -e "$hi_lvl\n$lo_lvl\n$parsed_lvl" | sort -g | grep -n "$parsed_lvl" | grep -q '^2:'; then
-    ui_print "$android_lvl" " ";
+    ui_print ">> $android_lvl <<";
   else
     abort " " "Unsupported Android security patch level. Aborting...";
   fi;
@@ -471,7 +473,7 @@ do_modules() {
       [ "$umountksu" ] && umount /data/adb/modules_update;
       return 0;
     else
-      ui_print "Magisk/KernelSU installation not found";
+      ui_print "- Magisk/KernelSU installation not found";
     fi;
   fi
 
@@ -543,7 +545,7 @@ export PATH="$AKHOME/tools:$AKHOME/bin:$PATH";
 
 if [ -f banner ]; then
   ui_printfile banner;
-  ui_print " " " ";
+  ui_print " ";
 fi;
 
 KERNEL_STRING="$(file_getprop anykernel.sh kernel.string)";
@@ -564,7 +566,7 @@ do_versioncheck;
 do_levelcheck;
 do_vendorlevelcheck;
 
-ui_print "Installing...";
+ui_print "Flashing...";
 ash anykernel.sh;
 if [ $? != 0 ]; then
   abort;
@@ -580,6 +582,8 @@ if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
 
-ui_print " " "Done!";
+ui_print "- Done!";
+ui_print " " "_________________________________________________";
+ui_print " " "$MESSAGE_WORD" "_________________________________________________" " ";
 export PATH="$OLD_PATH";
 unset OLD_PATH OUTFD ZIPFILE;
