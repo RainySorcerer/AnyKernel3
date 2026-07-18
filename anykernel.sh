@@ -4,16 +4,14 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=Zorix-kernel
+kernel.string=SnowFlake-kernel by RainZ
 kernel.revision=1.0
-kernel.compiler=Google clang 22.0.0
-kernel.made=Lucifer
+kernel.compiler=Neutron Clang 23
+kernel.made=RainZ
 anykernel3.made=osm0sis @ xda-developers
 do.devicecheck=1
 do.cleanup=1
-device.name1=haydn
-device.name2=haydnin
-device.name3=haydnpro
+device.name1=lisa
 supported.versions=15-17
 supported.patchlevels=
 supported.vendorpatchlevels=
