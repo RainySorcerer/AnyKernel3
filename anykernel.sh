@@ -14,7 +14,7 @@ do.cleanup=1
 device.name1=haydn
 device.name2=haydnin
 device.name3=haydnpro
-supported.versions=15-16
+supported.versions=15-17
 supported.patchlevels=
 supported.vendorpatchlevels=
 '; } # end properties
