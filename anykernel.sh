@@ -7,13 +7,14 @@ properties() { '
 kernel.string=Zorix-kernel
 kernel.revision=5.4
 kernel.compiler=Neutron Clang 23.0.0
-kernel.made=Lucifer
+kernel.made=Lucifer - RainZ
 anykernel3.made=osm0sis @ xda-developers
 do.devicecheck=1
 do.cleanup=1
 device.name1=haydn
 device.name2=haydnin
 device.name3=haydnpro
+device.name4=lisa
 supported.versions=15-17
 supported.patchlevels=
 supported.vendorpatchlevels=
