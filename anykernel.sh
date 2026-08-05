@@ -6,7 +6,7 @@
 properties() { '
 kernel.string=Zorix-kernel
 kernel.revision=5.4
-kernel.compiler=Neutron Clang 23.0.0
+kernel.compiler=Neutron Clang 24.0.0
 kernel.made=Lucifer - RainZ
 anykernel3.made=osm0sis @ xda-developers
 do.devicecheck=1
